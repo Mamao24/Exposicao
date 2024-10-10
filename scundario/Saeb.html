@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Fotos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(44, 62, 80, 0.8);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .galeria-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .foto {
+            flex: 0 0 calc(50% - 20px);
+            margin: 10px; 
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .foto img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .foto:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(44, 62, 80, 0.8);
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            margin: 20px auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .redirect-button {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: rgba(44, 62, 80, 0.8);
+            color: #ecf0f1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 1000;
+        }
+
+        .redirect-button:hover {
+            background-color: rgba(44, 62, 80, 1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Galeria de Fotos</h1>
+    </header>
+
+    <div class="galeria-container">
+        <div class="foto" onclick="openModal(this)">
+            <img src="../img/Saeb/Saeb_01.jpeg" alt="Descrição da Foto 1">
+        </div>
+        <div class="foto" onclick="openModal(this)">
+            <img src="../img/Saeb/Saeb_02.jpeg" alt="Descrição da Foto 2">
+        </div>
+    </div>
+
+    <div id="myModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Colégio Estadual Santo Agostinho. Todos os direitos reservados.</p>
+    </footer>
+
+
+    <button class="redirect-button" onclick="window.location.href='../index.html'">Voltar</button>
+
+    <script src="byp.js"></script>
+</body>
+</html>
